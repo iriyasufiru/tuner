@@ -1,0 +1,25 @@
+language: php
+
+notifications:
+  email: false
+
+php:
+  - '5.6'
+  - '7.0'
+  - '7.1'
+
+before_script:
+  - mysql -u root -e "CREATE DATABASE tuner COLLATE 'utf8_general_ci';"
+  - mysql -u root tuner < tuner.sql
+  - composer install
+
+script: phpunit
+
+after_script:
+  - sudo apt-get install nodejs
+  - npm install -g csslint
+  - npm install -g eslint
+  - wget -c http://static.phpmd.org/php/latest/phpmd.phar
+  - csslint ./public/*.css
+  - eslint ./public/*.js
+  - php phpmd.phar app/Models,app/Http text cleancode,codesize,controversial,design,naming,unusedcode --suffixes php
