@@ -23,4 +23,4 @@
 
 ----------
 
-Copyright (C) 2017  Narumi Toa
+Copyright (C) 2017  Illyasviel
