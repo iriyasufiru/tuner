@@ -1,6 +1,6 @@
 # tuner
 
-一个简单的音乐电台  
+一个简单的音乐电台  [![Build Status](https://travis-ci.org/iriyasufiru/tuner.svg?branch=master)](https://travis-ci.org/iriyasufiru/tuner)  
 
 ## 安装
 
