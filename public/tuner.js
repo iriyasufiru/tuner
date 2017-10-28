@@ -1,12 +1,11 @@
 var historylist = [];
 
 $(document).ready(function() {
-    var player = $("#player"),
-    next = $("#player-wrapper #next"),
-    name = $("#player-wrapper #name"),
-    sicon = $("#player-wrapper #sicon"),
-    img = $("body"),
+    var player = $(".js-player"),
+    name = $(".js-player-wrapper .js-name"),
+    next = $(".js-player-wrapper .js-next"),
     repeat = $(".jp-repeat"),
+    img = $("body"),
     title = $("title").html();
     var count = 0, stime, pxhr;
     var timeoutImage = "";
@@ -120,7 +119,7 @@ $(document).ready(function() {
         supplied:"oga",
         solution:"html",
         volume: 1,
-        cssSelectorAncestor: "#player-wrapper"
+        cssSelectorAncestor: ".js-player-wrapper"
     });
 
     //下一个
@@ -141,8 +140,8 @@ $(document).ready(function() {
 
     //搜索
     function serach(searchString) {
-        $("#sline-box").html("");
-        $("#sline-box").append("<div class=\"sline\">Serach...</div>");
+        $(".js-search-row-wrapper").html("");
+        $(".js-search-row-wrapper").append("<div class=\"search-row\">Serach...</div>");
 
         $.ajax({
             url: "/api/search",
@@ -150,28 +149,28 @@ $(document).ready(function() {
             dataType: "json",
             timeout: 30000,
             success: function (result) {
-                    $("#sline-box").html("");
+                    $(".js-search-row-wrapper").html("");
                 if (result.length == 0) {
-                    $("#sline-box").append("<div class=\"sline\">None...</div>");
+                    $(".js-search-row-wrapper").append("<div class=\"search-row\">None...</div>");
                 }
                 else{
                     $(result).each(function () {
-                        $("#sline-box").append("<div class=\"sline\"><a href=\"#" + this.id + "\">" + this.name + "</a></div>");
+                        $(".js-search-row-wrapper").append("<div class=\"search-row\"><a href=\"#" + this.id + "\">" + this.name + "</a></div>");
                     });
                         }
                     },
             error: function() {
-                $("#sline-box").html("");
-                $("#sline-box").append("<div class=\"sline\">Error...</div>");
+                $(".js-search-row-wrapper").html("");
+                $(".js-search-row-wrapper").append("<div class=\"search-row\">Error...</div>");
             }
         });
     }
 
     //回车搜索
-    $(".sinput").on("keypress",function(event){
+    $(".js-search-input").on("keypress",function(event){
         clearTimeout(stime);
         stime = setTimeout(function () {
-            var sinputVal = $(".sinput").val();
+            var sinputVal = $(".js-search-input").val();
             if (event.keyCode == 13 && sinputVal != "") {
                 serach(sinputVal);
             }
@@ -179,11 +178,11 @@ $(document).ready(function() {
     });
 
     //搜索图标
-    sicon.click(function() {
-        if ($("#search-box").css("display") == "none") {
-            $("#search-box").css("display","block");
+    $(".js-search-icon").click(function() {
+        if ($(".js-search-wrapper").css("display") == "none") {
+            $(".js-search-wrapper").css("display","block");
         }else {
-            $("#search-box").css("display","none");
+            $(".js-search-wrapper").css("display","none");
         }
     });
 

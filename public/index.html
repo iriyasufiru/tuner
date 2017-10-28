@@ -7,30 +7,30 @@
         <link rel="stylesheet" href="tuner.css">
     </head>
     <body>
-        <div id="player"></div>
-        <div id="player-wrapper">
+        <div class="player js-player"></div>
+        <div class="player-wrapper js-player-wrapper">
             <div class="m-seek-bar jp-seek-bar" style="width:100%;">
                 <div class="m-play-bar jp-play-bar" style="width:0;overflow:hidden;"></div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="left">
-                        <span id="name">tuner</span>
+                        <span class="js-name">tuner</span>
                     </div>
                     <div class="right">
-      	                <span class="glyphicon glyphicon-search fm-icon" id="sicon" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-random jp-repeat fm-icon" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-repeat jp-repeat-off fm-icon" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-play jp-play fm-icon" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-pause jp-pause fm-icon" aria-hidden="true"></span>
-                        <span class="glyphicon glyphicon-forward fm-icon" id="next" aria-hidden="true"></span>
+      	                <span class="glyphicon glyphicon-search player-icon js-search-icon" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-random player-icon jp-repeat" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-repeat player-icon jp-repeat-off" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-play player-icon jp-play" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-pause player-icon jp-pause" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-forward player-icon js-next" aria-hidden="true"></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="search-box">
-            <input type="text" class="sinput" value="Serach...">
-            <div id="sline-box">
+        <div class="search-wrapper js-search-wrapper">
+            <input type="text" class="search-input js-search-input" value="Serach...">
+            <div class="js-search-row-wrapper">
             </div>
         </div>
         <script src="//cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
