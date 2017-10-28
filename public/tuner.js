@@ -101,7 +101,7 @@ $(document).ready(function() {
     //播放完毕切歌 (这是播放器对象)
     player.jPlayer({
         ended: function() {
-            if (repeat.css('display') == 'none') {
+            if (repeat.css("display") == "none") {
                 player.jPlayer("play");
             }else {
                 playMusic(randomID());
@@ -168,7 +168,7 @@ $(document).ready(function() {
     }
 
     //回车搜索
-    $(".sinput").on('keypress',function(event){
+    $(".sinput").on("keypress",function(event){
         clearTimeout(stime);
         stime = setTimeout(function () {
             var sinputVal = $(".sinput").val();
@@ -180,7 +180,7 @@ $(document).ready(function() {
 
     //搜索图标
     sicon.click(function() {
-        if ($("#search-box").css('display') == 'none') {
+        if ($("#search-box").css("display") == "none") {
             $("#search-box").css("display","block");
         }else {
             $("#search-box").css("display","none");
@@ -188,9 +188,9 @@ $(document).ready(function() {
     });
 
     //空格播放暂停
-    $(document).on('keypress',function(event){
+    $(document).on("keypress",function(event){
         if (event.keyCode == 32 && event.target.nodeName != "INPUT") {
-            if ($(".jp-pause").css('display') == 'none') {
+            if ($(".jp-pause").css("display") == "none") {
                 //如果暂停按钮不显示 未播放
                 $(".jp-play").click();
             }else {
@@ -201,7 +201,7 @@ $(document).ready(function() {
     });
 
     //打开标签页后加载被延迟图片
-    $(document).on('visibilitychange', function (event) {
+    $(document).on("visibilitychange", function (event) {
         if (event.target.visibilityState === "visible") {
             if (timeoutImage != "") {
                 img.css("background-image", "url(" + timeoutImage + ")");
